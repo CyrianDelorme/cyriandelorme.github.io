@@ -1,66 +1,192 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cyrian Delorme | Offizielle Website</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Cyrian Delorme | Politikwissenschaftler</title>
+
+<meta name="description" content="Offizielle Website von Cyrian Delorme. Informationen über Forschung, Projekte und Publikationen.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
 body{
-margin:0;
-font-family:Arial, Helvetica, sans-serif;
-background:#0f172a;
+
+font-family:Inter,sans-serif;
+
+background:#09111d;
+
 color:white;
+
+line-height:1.7;
+
 }
 
-header{
-height:100vh;
+nav{
+
+position:fixed;
+
+width:100%;
+
 display:flex;
-flex-direction:column;
+
+justify-content:space-between;
+
+padding:25px 60px;
+
+background:rgba(9,17,29,.88);
+
+backdrop-filter:blur(12px);
+
+z-index:100;
+
+}
+
+nav a{
+
+color:white;
+
+text-decoration:none;
+
+margin-left:30px;
+
+font-weight:500;
+
+}
+
+.hero{
+
+height:100vh;
+
+display:flex;
+
 justify-content:center;
+
 align-items:center;
+
 text-align:center;
-background:linear-gradient(135deg,#0f172a,#1e3a8a);
+
+padding:30px;
+
+background:
+linear-gradient(rgba(9,17,29,.72),rgba(9,17,29,.85)),
+url("https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80");
+
+background-size:cover;
+
+background-position:center;
+
 }
 
-h1{
-font-size:64px;
-margin:0;
+.hero h1{
+
+font-size:70px;
+
+margin-bottom:20px;
+
 }
 
-h2{
-font-weight:300;
-color:#d1d5db;
+.hero p{
+
+font-size:24px;
+
+opacity:.9;
+
+margin-bottom:40px;
+
 }
 
 .button{
-margin-top:35px;
-padding:15px 35px;
+
+display:inline-block;
+
+padding:16px 34px;
+
 background:white;
-color:#0f172a;
+
+color:#09111d;
+
+border-radius:40px;
+
 text-decoration:none;
-border-radius:30px;
-font-weight:bold;
+
+font-weight:700;
+
+transition:.3s;
+
+}
+
+.button:hover{
+
+transform:translateY(-3px);
+
 }
 
 section{
-max-width:900px;
+
+max-width:1100px;
+
 margin:auto;
-padding:80px 30px;
+
+padding:110px 35px;
+
+}
+
+h2{
+
+font-size:38px;
+
+margin-bottom:35px;
+
 }
 
 .card{
-background:#1e293b;
-padding:30px;
-border-radius:15px;
-margin-top:25px;
+
+background:#122033;
+
+padding:40px;
+
+border-radius:18px;
+
+margin-bottom:30px;
+
+box-shadow:0 10px 35px rgba(0,0,0,.25);
+
+}
+
+.grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:25px;
+
 }
 
 footer{
+
 text-align:center;
-padding:40px;
-background:#020617;
+
+padding:60px;
+
+background:#050a13;
+
+color:#aaa;
+
 }
 
 </style>
@@ -69,15 +195,37 @@ background:#020617;
 
 <body>
 
-<header>
+<nav>
+
+<strong>Cyrian Delorme</strong>
+
+<div>
+
+<a href="#about">Über mich</a>
+
+<a href="#research">Forschung</a>
+
+<a href="#projects">Projekte</a>
+
+<a href="#contact">Kontakt</a>
+
+</div>
+
+</nav>
+
+<header class="hero">
+
+<div>
 
 <h1>Cyrian Delorme</h1>
 
-<h2>Politikwissenschaftler</h2>
+<p>Politikwissenschaftler</p>
 
-<a href="#about" class="button">
+<a class="button" href="#about">
 Mehr erfahren
 </a>
+
+</div>
 
 </header>
 
@@ -88,27 +236,97 @@ Mehr erfahren
 <div class="card">
 
 <p>
-Mein Name ist <strong>Cyrian Delorme</strong>.
-Ich bin Politikwissenschaftler und lebe in Bonn.
-Diese Website dient als persönliche Plattform, auf der ich Informationen über meine Arbeit, Projekte und Veröffentlichungen bereitstelle.
+
+Ich bin <strong>Cyrian Delorme</strong>, Politikwissenschaftler mit Wohnsitz in Bonn.
+
+Diese Website dient als zentrale Anlaufstelle für Informationen über meine wissenschaftliche Arbeit, Projekte und zukünftige Publikationen.
+
 </p>
 
+<br>
+
 <p>
-Geboren: 27. Oktober 1996
+
+Geboren am 27. Oktober 1996.
+
 </p>
 
 </div>
 
 </section>
 
-<section>
+<section id="research">
+
+<h2>Forschung</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>Politische Theorie</h3>
+
+<p>
+
+Informationen über Forschungsschwerpunkte und wissenschaftliche Arbeiten.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Internationale Politik</h3>
+
+<p>
+
+Analysen aktueller politischer Entwicklungen und internationaler Beziehungen.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Publikationen</h3>
+
+<p>
+
+Hier erscheinen künftig wissenschaftliche Beiträge und Veröffentlichungen.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="projects">
 
 <h2>Projekte</h2>
 
 <div class="card">
 
 <p>
-Dieser Bereich wird zukünftig Informationen über meine wissenschaftlichen Arbeiten, politische Projekte und Publikationen enthalten.
+
+Eine Übersicht über laufende und abgeschlossene Projekte wird hier ergänzt.
+
+</p>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2>Kontakt</h2>
+
+<div class="card">
+
+<p>
+
+Kontaktinformationen werden hier ergänzt.
+
 </p>
 
 </div>
@@ -117,9 +335,10 @@ Dieser Bereich wird zukünftig Informationen über meine wissenschaftlichen Arbe
 
 <footer>
 
-© 2026 Cyrian Delorme
+© 2026 Cyrian Delorme · Alle Rechte vorbehalten
 
 </footer>
 
 </body>
+
 </html>
