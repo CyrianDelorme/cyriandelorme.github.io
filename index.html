@@ -1,133 +1,213 @@
 
-<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cyrian Delorme | Politikwissenschaftler</title><link rel="stylesheet" href="style.css"></head><body>
-<nav><div class="brand">Cyrian Delorme</div><div><a href="#about">Über mich</a><a href="#research">Forschung</a><a href="#contact">Kontakt</a></div></nav>
-<header class="hero"><h1>Cyrian Delorme</h1><p>Politikwissenschaftler</p><img src="bild.png" alt="Porträt"><a class="btn" href="#about">Mehr erfahren</a></header>
-<section id="about">
-    <h2>Über mich</h2>
-    
-    <p>
-        Willkommen auf meiner persönlichen Website. Hier finden Sie Informationen über meine 
-        wissenschaftliche Arbeit und meine Person.
-    </p>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cyrian Delorme | Politikwissenschaftler</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
-    <p>
-        Mein Name ist Cyrian Delorme. Ich bin Politikwissenschaftler mit Schwerpunkt auf 
-        Internationalen Beziehungen und Europäischer Integration. Nach meinem International 
-        Baccalaureate an der International School of Hamburg studierte ich Politikwissenschaft 
-        an der Freien Universität Berlin und der Universität Bonn.
-    </p>
+:root{
+  --paper:#F7F4EE;
+  --paper-2:#FFFFFF;
+  --ink:#1C1B19;
+  --ink-dim:#5B584F;
+  --ink-faint:#9C9890;
+  --line:#DEDACF;
+  --accent:#1F3A34; /* dunkles Flaschengrün, bewusst anders als Messing/Nautik der Forschungsseite */
+  --accent-soft:#E4E9E4;
+  --font-display:'Fraunces', serif;
+  --font-body:'Source Serif 4', serif;
+  --font-mono:'IBM Plex Mono', monospace;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--font-body);line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--accent);}
 
-    <p>
-        Meine wissenschaftlichen Interessen liegen insbesondere in der Analyse globaler 
-        Machtstrukturen, der europäischen Integration sowie den langfristigen Auswirkungen 
-        von Kolonialismus und Imperialismus auf die heutige internationale Ordnung.
-    </p>
-</section>
+.topnav{
+  position:sticky;top:0;z-index:50;background:rgba(247,244,238,.92);
+  backdrop-filter:blur(6px);border-bottom:1px solid var(--line);
+}
+.topnav-inner{
+  max-width:980px;margin:0 auto;padding:16px 28px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;
+}
+.brandmark{font-family:var(--font-display);font-weight:600;font-size:16px;}
+.navlinks{display:flex;gap:26px;flex-wrap:wrap;}
+.navlinks a{
+  font-family:var(--font-mono);font-size:11.5px;letter-spacing:.03em;
+  color:var(--ink-dim);text-decoration:none;text-transform:uppercase;
+  padding:4px 0;border-bottom:1px solid transparent;transition:color .15s,border-color .15s;
+}
+.navlinks a:hover{color:var(--ink);border-color:var(--accent);}
 
+.hero{
+  max-width:980px;margin:0 auto;padding:76px 28px 60px 28px;
+  display:grid;grid-template-columns:1fr 220px;gap:48px;align-items:center;
+  border-bottom:1px solid var(--line);
+}
+@media (max-width:700px){.hero{grid-template-columns:1fr;}}
+.hero .kicker{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:16px;
+}
+.hero h1{
+  font-family:var(--font-display);font-weight:600;font-size:clamp(32px,4.6vw,50px);
+  line-height:1.1;margin:0 0 10px 0;
+}
+.hero .role{font-size:17px;color:var(--ink-dim);margin:0 0 22px 0;}
+.hero a.cta{
+  font-family:var(--font-mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+  text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:2px;
+}
+.hero-photo{
+  width:220px;height:220px;border-radius:4px;overflow:hidden;border:1px solid var(--line);
+  background:var(--paper-2);
+}
+.hero-photo img{width:100%;height:100%;object-fit:cover;display:block;}
 
-<section id="vita">
-    <h2>Lebenslauf</h2>
+.section{max-width:980px;margin:0 auto;padding:64px 28px;border-bottom:1px solid var(--line);}
+.section:last-of-type{border-bottom:none;}
+.section h2{
+  font-family:var(--font-display);font-weight:600;font-size:clamp(24px,3vw,32px);
+  margin:0 0 26px 0;
+}
+.section p{font-size:16.5px;color:var(--ink-dim);margin:0 0 16px 0;max-width:68ch;}
+.section p:last-child{margin-bottom:0;}
 
-    <div class="timeline">
+/* Lebenslauf timeline */
+.timeline{border-left:2px solid var(--accent-soft);padding-left:28px;display:flex;flex-direction:column;gap:34px;}
+.timeline-item{position:relative;}
+.timeline-item::before{
+  content:'';position:absolute;left:-33.5px;top:4px;width:9px;height:9px;border-radius:50%;
+  background:var(--accent);
+}
+.timeline-item .date{
+  font-family:var(--font-mono);font-size:11.5px;color:var(--accent);letter-spacing:.05em;
+  text-transform:uppercase;margin-bottom:6px;display:block;
+}
+.timeline-item p{margin:0;font-size:15.5px;}
 
-        <div class="entry">
-            <h3>Seit 2020</h3>
-            <p>
-                Tätigkeiten im Auswärtigen Amt sowie an deutschen Auslandsvertretungen 
-                in Großbritannien, Frankreich und den Vereinigten Staaten. Schwerpunkte 
-                in internationaler Zusammenarbeit, politischer Kommunikation und 
-                Bildungsarbeit.
-            </p>
-        </div>
+/* Sprachen */
+.badge-row{display:flex;flex-wrap:wrap;gap:10px;}
+.badge{
+  font-family:var(--font-mono);font-size:12px;background:var(--paper-2);
+  border:1px solid var(--line);border-radius:3px;padding:7px 12px;color:var(--ink-dim);
+}
 
-        <div class="entry">
-            <h3>2018 – 2020</h3>
-            <p>
-                Masterstudium der Politikwissenschaft an der Universität Bonn mit 
-                Schwerpunkt Internationale Beziehungen und Europäische Integration. 
-                Abschluss mit sehr guter Bewertung.
-            </p>
-        </div>
+/* Forschung */
+.project-card{
+  background:var(--paper-2);border:1px solid var(--line);border-radius:4px;
+  padding:24px;margin-top:22px;
+}
+.project-card h3{font-family:var(--font-display);font-size:19px;font-weight:600;margin:0 0 10px 0;}
+.project-card p{font-size:15.5px;margin:0 0 14px 0;}
+.project-links{display:flex;flex-direction:column;gap:8px;}
+.project-links a{
+  font-family:var(--font-mono);font-size:12.5px;text-decoration:none;
+  border-bottom:1px solid var(--accent);width:fit-content;padding-bottom:1px;
+}
+.project-links .tag{
+  font-family:var(--font-mono);font-size:10px;color:var(--ink-faint);text-transform:uppercase;
+  letter-spacing:.05em;margin-left:8px;
+}
 
-        <div class="entry">
-            <h3>2015 – 2018</h3>
-            <p>
-                Studium der Politikwissenschaft an der Freien Universität Berlin. 
-                Vertiefung in Internationale Beziehungen und Europäische Integration. 
-                Studienverlängerung aufgrund eines Praktikums im Auswärtigen Amt.
-            </p>
-        </div>
+footer{max-width:980px;margin:0 auto;padding:40px 28px 60px 28px;}
+footer .name{font-family:var(--font-display);font-weight:600;font-size:17px;margin-bottom:6px;}
+footer p{font-size:14.5px;color:var(--ink-dim);margin:2px 0;}
+footer a{text-decoration:none;border-bottom:1px solid var(--accent);}
+</style>
+</head>
+<body>
 
-        <div class="entry">
-            <h3>2014</h3>
-            <p>
-                Abschluss des International Baccalaureate an der International School 
-                of Hamburg.
-            </p>
-        </div>
-
+<nav class="topnav">
+  <div class="topnav-inner">
+    <div class="brandmark">Cyrian Delorme</div>
+    <div class="navlinks">
+      <a href="#about">Über mich</a>
+      <a href="#research">Forschung</a>
+      <a href="#contact">Kontakt</a>
     </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div>
+    <div class="kicker">Politikwissenschaftler</div>
+    <h1>Cyrian Delorme</h1>
+    <p class="role">Internationale Beziehungen &amp; Europäische Integration</p>
+    <a class="cta" href="#about">Mehr erfahren ↓</a>
+  </div>
+  <div class="hero-photo">
+    <img src="bild.png" alt="Porträt Cyrian Delorme">
+  </div>
+</header>
+
+<section class="section" id="about">
+  <h2>Über mich</h2>
+  <p>Willkommen auf meiner persönlichen Website. Hier finden Sie Informationen über meine wissenschaftliche Arbeit und meine Person.</p>
+  <p>Mein Name ist Cyrian Delorme. Ich bin Politikwissenschaftler mit Schwerpunkt auf Internationalen Beziehungen und Europäischer Integration. Nach meinem International Baccalaureate an der International School of Hamburg studierte ich Politikwissenschaft an der Freien Universität Berlin und der Universität Bonn.</p>
+  <p>Meine wissenschaftlichen Interessen liegen insbesondere in der Analyse globaler Machtstrukturen, der europäischen Integration sowie den langfristigen Auswirkungen von Kolonialismus und Imperialismus auf die heutige internationale Ordnung.</p>
 </section>
 
-
-<section id="skills">
-    <h2>Sprachen & Engagement</h2>
-
-    <ul>
-        <li>Deutsch – Muttersprache</li>
-        <li>Englisch – C2-Niveau</li>
-        <li>Französisch – C2-Niveau</li>
-        <li>Ehrenamtlicher Tennistrainer</li>
-    </ul>
+<section class="section" id="cv">
+  <h2>Lebenslauf</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <span class="date">Seit 2020</span>
+      <p>Tätigkeiten im Auswärtigen Amt sowie an deutschen Auslandsvertretungen in Großbritannien, Frankreich und den Vereinigten Staaten. Schwerpunkte in internationaler Zusammenarbeit, politischer Kommunikation und Bildungsarbeit.</p>
+    </div>
+    <div class="timeline-item">
+      <span class="date">2018–2020</span>
+      <p>Masterstudium der Politikwissenschaft an der Universität Bonn mit Schwerpunkt Internationale Beziehungen und Europäische Integration. Abschluss mit sehr guter Bewertung.</p>
+    </div>
+    <div class="timeline-item">
+      <span class="date">2015–2018</span>
+      <p>Studium der Politikwissenschaft an der Freien Universität Berlin. Vertiefung in Internationale Beziehungen und Europäische Integration. Studienverlängerung aufgrund eines Praktikums im Auswärtigen Amt.</p>
+    </div>
+    <div class="timeline-item">
+      <span class="date">2014</span>
+      <p>Abschluss des International Baccalaureate an der International School of Hamburg.</p>
+    </div>
+  </div>
 </section>
-</p></section>
-<section id="research">
-    <h2>Forschung</h2>
 
-    <p>
-        Meine Forschung beschäftigt sich mit den langfristigen Auswirkungen von 
-        Kolonialismus und Imperialismus auf die heutige internationale Ordnung. 
-        Dabei untersuche ich insbesondere, inwiefern historische Machtstrukturen, 
-        politische Beziehungen und institutionelle Verbindungen bis in die Gegenwart 
-        fortwirken.
-    </p>
+<section class="section" id="languages">
+  <h2>Sprachen &amp; Engagement</h2>
+  <div class="badge-row">
+    <span class="badge">Deutsch — Muttersprache</span>
+    <span class="badge">Englisch — C2</span>
+    <span class="badge">Französisch — C2</span>
+    <span class="badge">Ehrenamtlicher Tennistrainer</span>
+  </div>
+</section>
 
-    <p>
-        Ein Schwerpunkt liegt auf der Frage, wie gegenwärtige Bündnisse und 
-        internationale Partnerschaften vor dem Hintergrund ihrer historischen 
-        Entstehung betrachtet werden können. Dabei geht es nicht um eine direkte 
-        Gleichsetzung vergangener Imperien mit heutigen Staaten oder Organisationen, 
-        sondern um die Analyse möglicher historischer Kontinuitäten und 
-        Einflussstrukturen.
-    </p>
+<section class="section" id="research">
+  <h2>Forschung</h2>
+  <p>Meine Forschung beschäftigt sich mit den langfristigen Auswirkungen von Kolonialismus und Imperialismus auf die heutige internationale Ordnung. Dabei untersuche ich insbesondere, inwiefern historische Machtstrukturen, politische Beziehungen und institutionelle Verbindungen bis in die Gegenwart fortwirken.</p>
+  <p>Ein Schwerpunkt liegt auf der Frage, wie gegenwärtige Bündnisse und internationale Partnerschaften vor dem Hintergrund ihrer historischen Entstehung betrachtet werden können. Dabei geht es nicht um eine direkte Gleichsetzung vergangener Imperien mit heutigen Staaten oder Organisationen, sondern um die Analyse möglicher historischer Kontinuitäten und Einflussstrukturen.</p>
 
+  <div class="project-card">
     <h3>Projekt: Historische Verflechtungen internationaler Bündnisse</h3>
-
-    <p>
-        Im Rahmen dieses Forschungsprojekts stelle ich eine Arbeitsvorlage zur 
-        Verfügung, mit der Nutzerinnen und Nutzer eigene Analysen internationaler 
-        Bündnisse durchführen können. Das Dokument ermöglicht es, heutige 
-        Partnerschaften einzutragen und mögliche historische Bezüge zu untersuchen, 
-        beispielsweise zu früheren imperialen Einflussräumen wie dem britischen oder 
-        französischen Kolonialreich.
-    </p>
-
-    <p>
-        Die Vorlage dient als Ausgangspunkt für eigene Recherche und soll dazu 
-        anregen, internationale Beziehungen nicht nur aus der Perspektive der 
-        Gegenwart, sondern auch unter Berücksichtigung historischer Entwicklungen 
-        zu betrachten.
-    </p>
-
-    <a href="lagekarte.html" download>
-        Forschungsdokument herunterladen (PDF)
-    </a>
-</section>
-<section id="contact"><h2>Kontakt</h2><p>Cyrian Delorme</p>
-    <div class="entry">
-        <p>delorme.cyrian@gmail.com</p>
+    <p>Im Rahmen dieses Forschungsprojekts stelle ich eine Arbeitsvorlage zur Verfügung, mit der Nutzerinnen und Nutzer eigene Analysen internationaler Bündnisse durchführen können. Das Dokument ermöglicht es, heutige Partnerschaften einzutragen und mögliche historische Bezüge zu untersuchen, beispielsweise zu früheren imperialen Einflussräumen wie dem britischen oder französischen Kolonialreich.</p>
+    <div class="project-links">
+      <a href="https://cyriandelorme.github.io/Forschung/" target="_blank" rel="noopener">Zur Forschungsseite: Imperien &amp; Handel<span class="tag">Analyse</span></a>
+      <a href="lagekarte.html" target="_blank" rel="noopener">Interaktive Arbeitsvorlage öffnen<span class="tag">HTML, keine PDF</span></a>
     </div>
-    <div class="entry">
-        <p>Venusbergweg 45, 53115 Bonn</p>
+  </div>
 </section>
-<script src="script.js"></script></body></html>
+
+<footer id="contact">
+  <div class="name">Cyrian Delorme</div>
+  <p><a href="mailto:delorme.cyrian@gmail.com">delorme.cyrian@gmail.com</a></p>
+  <p>Venusbergweg, Südstadt, Bonn, Deutschland</p>
+</footer>
+
+</body>
+</html>
